@@ -16,47 +16,46 @@
             overflow-x: hidden;
         }
 
-        
+        /* --- SECCIÓN 1: INICIO (HERO) --- */
         #hero {
             height: 100vh;
-            width: 100vw;
+            width: 100%;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             position: relative;
-            background-color: #0b0b0b; /* Fondo negro sólido para evitar bordes feos */
+            background-color: #0b0b0b;
             overflow: hidden;
         }
 
-        /* ESTE ES EL TRUCO PARA LA IMAGEN PERFECTA */
+        /* LA IMAGEN: Ahora con z-index bajo para que no tape nada */
         .hero-img {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: contain; /* Obliga a la imagen a mostrarse COMPLETA sin zoom */
-            z-index: 1;
-            /* MEJORA LA NITIDEZ EN NAVEGADORES */
+            object-fit: cover; /* Llena toda la pantalla sin barras negras */
+            z-index: 1; /* Al fondo */
             image-rendering: -webkit-optimize-contrast;
             image-rendering: crisp-edges;
         }
 
-        /* --- REDES SOCIALES EN EL HERO --- */
+        /* REDES SOCIALES: Con z-index alto para que salgan adelante */
         .hero-socials {
             position: absolute;
             bottom: 120px;
             display: flex;
             gap: 25px;
-            z-index: 10;
+            z-index: 10; /* Adelante de la imagen */
         }
 
         .hero-socials a {
             color: white;
             font-size: 2.2rem;
             transition: 0.3s;
-            filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
+            filter: drop-shadow(0 0 10px rgba(0,0,0,0.8));
         }
 
         .hero-socials a:hover {
@@ -64,14 +63,15 @@
             transform: scale(1.2);
         }
 
-        /* --- FLECHA EN MOVIMIENTO --- */
+        /* FLECHA: Con z-index alto y animación */
         .scroll-indicator {
             position: absolute;
             bottom: 40px;
             font-size: 2.5rem;
+            z-index: 10; /* Adelante de la imagen */
             animation: bounce 2s infinite;
             color: white;
-            cursor: pointer;
+            filter: drop-shadow(0 0 5px rgba(0,0,0,0.8));
         }
 
         @keyframes bounce {
@@ -80,14 +80,14 @@
             60% {transform: translateY(-7px);}
         }
 
-        /* --- SECCIÓN 2: CONTENIDO (TRÁILER Y STEAM) --- */
+        /* --- SECCIÓN 2: CONTENIDO --- */
         #main-content {
-            padding: 60px 20px;
+            padding: 80px 20px;
             position: relative;
-            min-height: 100vh;
+            background-color: #0b0b0b;
         }
 
-        /* Fondo para la sección 2 */
+        /* Fondo sutil para la zona del tráiler */
         #main-content::before {
             content: "";
             background-image: url('background.jpg'); 
@@ -95,8 +95,8 @@
             background-position: center;
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            opacity: 0.15; 
-            z-index: -1;
+            opacity: 0.1; 
+            z-index: 0;
         }
 
         h2 { 
@@ -104,7 +104,8 @@
             letter-spacing: 8px; 
             color: #ff9d00; 
             margin: 0; 
-            text-transform: uppercase;
+            position: relative;
+            z-index: 2;
         }
 
         .performance { 
@@ -114,9 +115,11 @@
             font-weight: bold; 
             text-transform: uppercase;
             letter-spacing: 2px;
+            position: relative;
+            z-index: 2;
         }
 
-        .container { max-width: 1000px; margin: auto; padding-top: 30px; }
+        .container { max-width: 1000px; margin: auto; position: relative; z-index: 2; }
 
         .video-container { 
             width: 100%; 
@@ -124,7 +127,7 @@
             background: #000; 
             margin: 30px 0; 
             border: 1px solid #333; 
-            box-shadow: 0 0 40px rgba(0,0,0,0.8);
+            box-shadow: 0 0 40px rgba(0,0,0,0.9);
             border-radius: 8px;
             overflow: hidden;
         }
@@ -152,29 +155,27 @@
         }
 
         .feature-card { 
-            background: rgba(18, 18, 18, 0.8); 
+            background: rgba(18, 18, 18, 0.9); 
             padding: 30px; 
             border-radius: 12px; 
             border: 1px solid #222;
-            backdrop-filter: blur(5px);
         }
 
         footer {
             margin-top: 80px; 
             padding: 40px; 
-            color: #666;
-            border-top: 1px solid #1a1a1a;
+            color: #555;
+            position: relative;
+            z-index: 2;
         }
     </style>
 </head>
 <body>
 
-    <!-- SECCIÓN 1: EL IMPACTO -->
     <section id="hero">
-        <!-- La imagen ahora es un elemento real para controlar su escala -->
-        <img src="hero.jpg" alt="ALLSKIII Hero" class="hero-img">
+        <!-- Imagen que subiste (con el logo más pequeño hecho en Krita) -->
+        <img src="hero.jpg" alt="ALLSKIII" class="hero-img">
 
-        <!-- Los iconos y la flecha por encima de la imagen -->
         <div class="hero-socials">
             <a href="https://discord.gg/MHnBZHbK" target="_blank"><i class="fab fa-discord"></i></a>
             <a href="https://x.com/allskillaim" target="_blank"><i class="fab fa-x-twitter"></i></a>
@@ -188,7 +189,6 @@
         </div>
     </section>
 
-    <!-- SECCIÓN 2: EL CONTENIDO -->
     <section id="main-content">
         <h2>ALLSKIII</h2>
         <p class="performance">1.4 MS | 0 INPUT LAG | CONTROLLER & MOUSE</p>
