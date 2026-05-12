@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ALLSKIII | Ultimate Performance Aim Trainer</title>
+    <!-- Cargamos los iconos de FontAwesome para que se vean X, Discord y TikTok -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         body { 
             background-color: #0b0b0b; 
@@ -12,11 +14,27 @@
             text-align: center; 
             margin: 0; 
             overflow-x: hidden;
+            position: relative;
         }
+
+        /* CONFIGURACIÓN DE LA IMAGEN DE FONDO CON OPACIDAD */
+        body::before {
+            content: "";
+            background-image: url('background.jpg'); /* ASEGÚRATE DE SUBIR LA FOTO CON ESTE NOMBRE */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0.15; /* Opacidad baja como pediste */
+            z-index: -1;
+        }
+
         header { 
-            padding: 60px 20px; 
-            background: linear-gradient(180deg, #1a1a1a 0%, #0b0b0b 100%); 
+            padding: 60px 20px 30px 20px; 
+            background: linear-gradient(180deg, rgba(26,26,26,0.8) 0%, rgba(11,11,11,0) 100%); 
         }
+
         h1 { 
             font-size: clamp(3rem, 10vw, 5rem); 
             letter-spacing: 8px; 
@@ -25,6 +43,7 @@
             font-weight: 900;
             text-transform: uppercase;
         }
+
         .performance { 
             font-size: clamp(1rem, 4vw, 1.5rem); 
             color: #00ff88; 
@@ -33,16 +52,39 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
+
+        /* ICONOS SOCIALES */
+        .social-links {
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 2rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            color: #ff9d00;
+            transform: scale(1.2);
+        }
+
         .container { 
             padding: 20px; 
             max-width: 1000px; 
             margin: auto; 
         }
+
         .tagline {
             font-size: 1.2rem;
             color: #aaa;
             margin-bottom: 30px;
         }
+
         .video-container { 
             width: 100%; 
             aspect-ratio: 16/9; 
@@ -53,6 +95,7 @@
             border-radius: 8px;
             overflow: hidden;
         }
+
         .btn-steam { 
             background-color: #ff9d00; 
             color: black; 
@@ -66,42 +109,46 @@
             transition: all 0.3s ease;
             text-transform: uppercase;
         }
+
         .btn-steam:hover { 
             background-color: #ffffff; 
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(255, 157, 0, 0.3);
         }
+
         .features { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
             gap: 25px; 
             margin-top: 60px; 
         }
+
         .feature-card { 
-            background: #121212; 
+            background: rgba(18, 18, 18, 0.8); 
             padding: 30px; 
             border-radius: 12px; 
             border: 1px solid #222;
             transition: 0.3s;
+            backdrop-filter: blur(5px);
         }
+
         .feature-card:hover {
             border-color: #ff9d00;
         }
+
         .feature-card h3 { 
             color: #ff9d00; 
             margin-top: 0; 
             font-size: 1.5rem;
         }
-        .feature-card p {
-            color: #ccc;
-            line-height: 1.6;
-        }
+
         footer {
             margin-top: 100px; 
             padding: 40px; 
-            color: #444;
-            font-size: 0.9rem;
+            color: #666;
+            font-size: 1rem;
             border-top: 1px solid #1a1a1a;
+            background: rgba(11, 11, 11, 0.9);
         }
     </style>
 </head>
@@ -110,21 +157,27 @@
     <header>
         <h1>ALLSKIII</h1>
         <p class="performance">1.1ms Frametime | 0 Input Lag | Unity 6 Powered</p>
+        
+        <!-- SECCIÓN DE REDES SOCIALES -->
+        <div class="social-links">
+            <a href="https://discord.gg/MHnBZHbK" target="_blank" title="Discord"><i class="fab fa-discord"></i></a>
+            <a href="https://x.com/allskillaim" target="_blank" title="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://www.tiktok.com/@allskilltrainer" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+        </div>
     </header>
 
     <div class="container">
         <p class="tagline">The next generation of precision training for competitive players.</p>
         
         <div class="video-container">
-            <!-- REEMPLAZA EL ID DEL VIDEO ABAJO -->
             <iframe 
-    width="100%" 
-    height="100%" 
-    src="https://www.youtube.com/embed/PPXjn8ySaNY?autoplay=1&mute=1&playlist=PPXjn8ySaNY&loop=1&controls=1" 
-    frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-    allowfullscreen>
-</iframe>
+                width="100%" 
+                height="100%" 
+                src="https://www.youtube.com/embed/PPXjn8ySaNY?autoplay=1&mute=1&playlist=PPXjn8ySaNY&loop=1&controls=1" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
         </div>
 
         <a href="#" class="btn-steam">COMING SOON ON STEAM - WISHLIST NOW</a>
@@ -138,19 +191,11 @@
                 <h3>Competitive Grade</h3>
                 <p>Optimized with Unity 6 for ultra-high refresh rates and rock-solid frame stability.</p>
             </div>
-            <div class="feature-card">
-                <h3>Full Customization</h3>
-                <p>Disable weapons, remove recoil, and tweak every visual aspect to fit your training.</p>
-            </div>
-            <div class="feature-card">
-                <h3>Solo Dev Passion</h3>
-                <p>Built by a competitive player for competitive players. Pure performance, no bloat.</p>
-            </div>
         </div>
     </div>
 
     <footer>
-        &copy; 2025 ALLSKIII | Developed by a Solo Dev | Built with Unity 6
+        &copy; 2026 ALLSKIII | Developed by @Shoota
     </footer>
 
 </body>
