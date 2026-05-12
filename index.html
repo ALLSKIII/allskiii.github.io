@@ -29,26 +29,24 @@
             overflow: hidden;
         }
 
-        /* LA IMAGEN: Ahora con z-index bajo para que no tape nada */
         .hero-img {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Llena toda la pantalla sin barras negras */
-            z-index: 1; /* Al fondo */
+            object-fit: cover; 
+            z-index: 1;
             image-rendering: -webkit-optimize-contrast;
             image-rendering: crisp-edges;
         }
 
-        /* REDES SOCIALES: Con z-index alto para que salgan adelante */
         .hero-socials {
             position: absolute;
             bottom: 120px;
             display: flex;
             gap: 25px;
-            z-index: 10; /* Adelante de la imagen */
+            z-index: 10;
         }
 
         .hero-socials a {
@@ -63,12 +61,11 @@
             transform: scale(1.2);
         }
 
-        /* FLECHA: Con z-index alto y animación */
         .scroll-indicator {
             position: absolute;
             bottom: 40px;
             font-size: 2.5rem;
-            z-index: 10; /* Adelante de la imagen */
+            z-index: 10;
             animation: bounce 2s infinite;
             color: white;
             filter: drop-shadow(0 0 5px rgba(0,0,0,0.8));
@@ -87,7 +84,6 @@
             background-color: #0b0b0b;
         }
 
-        /* Fondo sutil para la zona del tráiler */
         #main-content::before {
             content: "";
             background-image: url('background.jpg'); 
@@ -173,14 +169,14 @@
 <body>
 
     <section id="hero">
-        <!-- Imagen que subiste (con el logo más pequeño hecho en Krita) -->
         <img src="hero.jpg" alt="ALLSKIII" class="hero-img">
 
         <div class="hero-socials">
             <a href="https://discord.gg/MHnBZHbK" target="_blank"><i class="fab fa-discord"></i></a>
             <a href="https://x.com/allskillaim" target="_blank"><i class="fab fa-x-twitter"></i></a>
             <a href="https://youtube.com/watch?v=PPXjn8ySaNY" target="_blank"><i class="fab fa-youtube"></i></a>
-            <a href="https://www.reddit.com/r/IndieGaming/" target="_blank"><i class="fab fa-reddit-alien"></i></a>
+            <!-- LINK DE REDDIT ACTUALIZADO AQUÍ -->
+            <a href="https://www.reddit.com/r/ALLSKIII/" target="_blank"><i class="fab fa-reddit-alien"></i></a>
             <a href="https://www.tiktok.com/@allskilltrainer" target="_blank"><i class="fab fa-tiktok"></i></a>
         </div>
 
